@@ -1,0 +1,14 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+*.dll
+*.mdb
+*.pdb
+/CarouselPageNavigation/bin/Debug
+/CarouselPageNavigation/obj/Debug
+/Droid/bin/Debug
+/Droid/obj/Debug
+/iOS/bin/iPhoneSimulator/Debug
+/iOS/obj/iPhoneSimulator/Debug
+/packages
