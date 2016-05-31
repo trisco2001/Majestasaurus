@@ -1,11 +1,16 @@
-CarouselPageTemplate
+Majestasaurus
 ====================
 
-This sample demonstrates how to use a `CarouselPage` to navigate through a collection of pages. The `CarouselPage` is constructed by assigning a collection to the `ItemsSource` property and assigning a `DataTemplate` to the `ItemTemplate` property to return pages for objects in the collection.
+A little app for my wife and I to experiment on making a cross-platform children's book about dinosaurs.
 
-For more information about the sample see [Carousel Page](http://developer.xamarin.com/guides/cross-platform/xamarin-forms/user-interface/navigation/carousel-page/).
+This app started from the Xamarin Carousel page sample page. For more information about the sample see [Carousel Page](http://developer.xamarin.com/guides/cross-platform/xamarin-forms/user-interface/navigation/carousel-page/).
 
 Author
 ------
 
-David Britch
+Tristan Leonard
+
+Artist
+------
+
+Amanda Leonard
