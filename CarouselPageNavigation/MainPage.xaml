@@ -6,11 +6,10 @@
 		<DataTemplate>
 			<ContentPage>
 				<ContentPage.Padding>
-					<OnPlatform x:TypeArguments="Thickness" iOS="0,40,0,0" Android="0,40,0,0" />
+					<OnPlatform x:TypeArguments="Thickness" iOS="0,0,0,0" Android="0,0,0,0" />
 				</ContentPage.Padding>
-				<StackLayout>
-					<Label Text="{Binding Name}" FontSize="Medium" HorizontalOptions="Center" />
-					<BoxView Color="{Binding Color}" WidthRequest="200" HeightRequest="200" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+				<StackLayout BackgroundColor="{Binding Color}">
+					<Label Text="{Binding Name}" TextColor="White" FontSize="Large" HorizontalOptions="Center" VerticalOptions="EndAndExpand" Margin="20,20,20,20" FontAttributes="Bold"/>
 				</StackLayout>
 			</ContentPage>
 		</DataTemplate>

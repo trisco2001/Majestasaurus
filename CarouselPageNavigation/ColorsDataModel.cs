@@ -16,16 +16,16 @@ namespace Majestasaurus.Portable
 		{
 			All = new ObservableCollection<ColorsDataModel> {
 				new ColorsDataModel {
-					Name = "Red",
-					Color = Color.Red
+					Name = "Titania the Tyrannosaurus wanted to be queen of the forest.",
+					Color = Color.Blue
 				},
 				new ColorsDataModel {
-					Name = "Green",
+					Name = "One day she met a handsome man tyrannosarus.",
 					Color = Color.Green
 				},
 				new ColorsDataModel {
-					Name = "Blue",
-					Color = Color.Blue
+					Name = "She killed him and ate him.",
+					Color = Color.Red
 				}
 			};
 		}
