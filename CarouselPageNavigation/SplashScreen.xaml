@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Majestasaurus.Portable.SplashScreen">
+  <Grid BackgroundColor="Fuchsia">
+    <Grid.RowDefinitions>
+      <RowDefinition/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition/>
+    </Grid.ColumnDefinitions>
+    <Image Grid.Column="0" Grid.Row="0" Source="echo.png" Margin="0,0,0,0" Aspect="AspectFill" VerticalOptions="FillAndExpand"/>
+    <StackLayout Grid.Column="0" Grid.Row="0" Margin="0,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
+      <ProgressBar Progress="{Binding Progress}" WidthRequest="200" HeightRequest="10" VerticalOptions="Center" HorizontalOptions="Center"/>
+      <Label Text="{Binding MainText}" TextColor="White" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center" />
+    </StackLayout>
+  </Grid>
+
+</ContentPage>

@@ -6,7 +6,7 @@ namespace Majestasaurus.Portable
 	{
 		public App ()
 		{
-			MainPage = new MainPage ();
+			MainPage = new SplashScreen ();
 		}
 
 		protected override void OnStart ()
