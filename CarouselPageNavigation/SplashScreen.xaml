@@ -9,7 +9,7 @@
     <Grid.ColumnDefinitions>
       <ColumnDefinition/>
     </Grid.ColumnDefinitions>
-    <Image Grid.Column="0" Grid.Row="0" Source="echo.png" Margin="0,0,0,0" Aspect="AspectFill" VerticalOptions="FillAndExpand"/>
+    <Image Grid.Column="0" Grid.Row="0" Source="00-splash.jpg" Margin="0,0,0,0" Aspect="AspectFill" VerticalOptions="FillAndExpand"/>
     <StackLayout Grid.Column="0" Grid.Row="0" Margin="0,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
       <ProgressBar Progress="{Binding Progress}" WidthRequest="200" HeightRequest="10" VerticalOptions="Center" HorizontalOptions="Center"/>
       <Label Text="{Binding MainText}" TextColor="White" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center" />

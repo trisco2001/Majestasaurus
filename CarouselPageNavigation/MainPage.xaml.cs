@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms;
+﻿using System;
+using Xamarin.Forms;
 
 namespace Majestasaurus.Portable
 {
@@ -8,7 +9,12 @@ namespace Majestasaurus.Portable
 		{
 			InitializeComponent ();
 			ItemsSource = ColorsDataModel.All;
-		}
-	}
+        }
+
+        public void BackClicked(object sender, EventArgs e)
+        {
+            Navigation.PopModalAsync();
+        }
+    }
 }
 

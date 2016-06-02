@@ -9,6 +9,7 @@
 					<OnPlatform x:TypeArguments="Thickness" iOS="0,0,0,0" Android="0,0,0,0" />
 				</ContentPage.Padding>
 				<StackLayout BackgroundColor="{Binding Color}">
+          <Button Text="Go Back" Clicked="BackClicked" VerticalOptions="Start" HorizontalOptions="Center" />
 					<Label Text="{Binding Name}" TextColor="White" FontSize="Large" HorizontalOptions="Center" VerticalOptions="EndAndExpand" Margin="20,20,20,20" FontAttributes="Bold"/>
 				</StackLayout>
 			</ContentPage>

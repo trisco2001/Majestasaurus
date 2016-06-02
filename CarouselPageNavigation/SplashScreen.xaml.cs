@@ -33,7 +33,7 @@ namespace Majestasaurus.Portable
                 splashScreenModel.MainText = "Hi There " + i;
                 splashScreenModel.Progress += 1.0 / max;
             }
-            await Navigation.PushModalAsync(new MainPage());
+            await Navigation.PushModalAsync(new HomePage());
         }
     }
 }
