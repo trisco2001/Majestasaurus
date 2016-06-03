@@ -1,18 +1,42 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<CarouselPage xmlns="http://xamarin.com/schemas/2014/forms" 
-			  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+        xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
 			  x:Class="Majestasaurus.Portable.MainPage">
-	<CarouselPage.ItemTemplate>
-		<DataTemplate>
-			<ContentPage>
-				<ContentPage.Padding>
-					<OnPlatform x:TypeArguments="Thickness" iOS="0,0,0,0" Android="0,0,0,0" />
-				</ContentPage.Padding>
-				<StackLayout BackgroundColor="{Binding Color}">
-          <Button Text="Go Back" Clicked="BackClicked" VerticalOptions="Start" HorizontalOptions="Center" />
-					<Label Text="{Binding Name}" TextColor="White" FontSize="Large" HorizontalOptions="Center" VerticalOptions="EndAndExpand" Margin="20,20,20,20" FontAttributes="Bold"/>
-				</StackLayout>
-			</ContentPage>
-		</DataTemplate>
-	</CarouselPage.ItemTemplate>
-</CarouselPage>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="40"/>
+      <RowDefinition/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="60"/>
+      <ColumnDefinition/>
+      <ColumnDefinition Width="60"/>
+    </Grid.ColumnDefinitions>
+    <controls:CarouselViewControl Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2" Position="0" x:Name="Carousel" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+      <controls:CarouselViewControl.ItemTemplate>
+        <DataTemplate>
+          <Grid BackgroundColor="{Binding Color}">
+            <Grid.RowDefinitions>
+              <RowDefinition/>
+              <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Image Grid.Row="0" Grid.RowSpan="2" Source="{Binding ImageName}" HorizontalOptions="FillAndExpand" Aspect="AspectFill" Opacity="0.7">
+              <Image.GestureRecognizers>
+                <TapGestureRecognizer
+                  Tapped="OnTapGestureRecognizerTapped"
+                  NumberOfTapsRequired="1" />
+              </Image.GestureRecognizers>
+            </Image>
+            <Label Grid.Row="1" Text="{Binding PageText}" TextColor="White" FontSize="Large" FontAttributes="Bold"/>
+          </Grid>
+        </DataTemplate>
+      </controls:CarouselViewControl.ItemTemplate>
+    </controls:CarouselViewControl>
+    <Button x:Name="PrevButton" Opacity="1" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Clicked="PrevClicked"></Button>
+    <StackLayout x:Name="MainMenu" Opacity="0.7" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="Start">
+      <Button Text="Go Back" Clicked="BackClicked"></Button>
+    </StackLayout>
+    <Button x:Name="NextButton" Opacity="1" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Clicked="NextClicked"></Button>
+  </Grid>
+</ContentPage>

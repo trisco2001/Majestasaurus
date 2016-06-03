@@ -4,28 +4,33 @@ using Xamarin.Forms;
 
 namespace Majestasaurus.Portable
 {
-	public class ColorsDataModel
-	{
-		public string Name { get; set; }
+	public class BooksDataModel
+    {
+        public string PageText { get; set; }
 
-		public Color Color { get; set; }
+        public string ImageName { get; set; }
 
-		public static IList<ColorsDataModel> All { get; set; }
+        public Color Color { get; set; }
 
-		static ColorsDataModel ()
+		public static IList<BooksDataModel> All { get; set; }
+
+		static BooksDataModel ()
 		{
-			All = new ObservableCollection<ColorsDataModel> {
-				new ColorsDataModel {
-					Name = "Titania the Tyrannosaurus wanted to be queen of the forest.",
+			All = new ObservableCollection<BooksDataModel> {
+				new BooksDataModel {
+					PageText = "Titania the Tyrannosaurus wanted to be queen of the forest.",
+                    ImageName = "01-page.png",
 					Color = Color.Blue
 				},
-				new ColorsDataModel {
-					Name = "One day she met a handsome man tyrannosarus.",
-					Color = Color.Green
+				new BooksDataModel {
+					PageText = "One day she met a handsome man tyrannosarus.",
+                    ImageName = "01-page.png",
+                    Color = Color.Green
 				},
-				new ColorsDataModel {
-					Name = "She killed him and ate him.",
-					Color = Color.Red
+				new BooksDataModel {
+					PageText = "She killed him and ate him.",
+                    ImageName = "01-page.png",
+                    Color = Color.Red
 				}
 			};
 		}

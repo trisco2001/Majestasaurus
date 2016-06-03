@@ -29,8 +29,8 @@ namespace Majestasaurus.Portable
             int max = 50;
             for (int i = 0; i < max; i++)
             {
-                await Task.Delay(4000/max);
-                splashScreenModel.MainText = "Hi There " + i;
+                await Task.Delay(2000/max);
+                splashScreenModel.MainText = "Loading " + (i * 100 / max) + "%";
                 splashScreenModel.Progress += 1.0 / max;
             }
             await Navigation.PushModalAsync(new HomePage());
