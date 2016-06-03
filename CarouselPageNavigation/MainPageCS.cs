@@ -32,7 +32,7 @@ namespace Majestasaurus.Portable
 				};
 			});
 
-			ItemsSource = ColorsDataModel.All;
+			ItemsSource = BooksDataModel.All;
 		}
 	}
 }

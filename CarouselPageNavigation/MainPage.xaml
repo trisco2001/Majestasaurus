@@ -8,7 +8,12 @@
       <RowDefinition Height="40"/>
       <RowDefinition/>
     </Grid.RowDefinitions>
-    <controls:CarouselViewControl Grid.Row="0" Grid.RowSpan="2" Position="0" x:Name="Carousel" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="60"/>
+      <ColumnDefinition/>
+      <ColumnDefinition Width="60"/>
+    </Grid.ColumnDefinitions>
+    <controls:CarouselViewControl Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2" Position="0" x:Name="Carousel" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
       <controls:CarouselViewControl.ItemTemplate>
         <DataTemplate>
           <Grid BackgroundColor="{Binding Color}">
@@ -16,18 +21,22 @@
               <RowDefinition/>
               <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
-            <Image Grid.Row="0" Grid.RowSpan="2" Source="00-splash.jpg" HorizontalOptions="FillAndExpand" Aspect="AspectFill" Opacity="0.7">
+            <Image Grid.Row="0" Grid.RowSpan="2" Source="{Binding ImageName}" HorizontalOptions="FillAndExpand" Aspect="AspectFill" Opacity="0.7">
               <Image.GestureRecognizers>
                 <TapGestureRecognizer
                   Tapped="OnTapGestureRecognizerTapped"
                   NumberOfTapsRequired="1" />
               </Image.GestureRecognizers>
             </Image>
-            <Label Grid.Row="1" Text="{Binding Name}" TextColor="White" FontSize="Large" FontAttributes="Bold"/>
+            <Label Grid.Row="1" Text="{Binding PageText}" TextColor="White" FontSize="Large" FontAttributes="Bold"/>
           </Grid>
         </DataTemplate>
       </controls:CarouselViewControl.ItemTemplate>
     </controls:CarouselViewControl>
-    <Button x:Name="BackButton" Opacity="0.7" BackgroundColor="White" Grid.Row="0" Text="Go Back" Clicked="BackClicked"></Button>
+    <Button x:Name="PrevButton" Opacity="1" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Clicked="PrevClicked"></Button>
+    <StackLayout x:Name="MainMenu" Opacity="0.7" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="Start">
+      <Button Text="Go Back" Clicked="BackClicked"></Button>
+    </StackLayout>
+    <Button x:Name="NextButton" Opacity="1" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Clicked="NextClicked"></Button>
   </Grid>
 </ContentPage>
