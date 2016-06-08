@@ -11,6 +11,8 @@ namespace Majestasaurus.Portable
 
         public Color Color { get; set; }
 
+        public string Title { get; set; }
+
         public TextLabel TopLeftLabel { get; set; }
  
         public TextLabel TopCenterLabel { get; set; }
@@ -37,6 +39,7 @@ namespace Majestasaurus.Portable
                 new BooksDataModel {
                     ImageName = "01-page.png",
                     Color = Color.Blue,
+                    Title = "Titania Prepares for the Day",
                     BottomLeftLabel = new TextLabel {
                         Text = "Titania the Tyrannosaurus wanted to be queen of the forest.",
                         Color = Color.White
@@ -47,22 +50,21 @@ namespace Majestasaurus.Portable
                     }
                 },
                 new BooksDataModel {
-                    ImageName = "00-splash.jpg",
+                    ImageName = "02-page.png",
                     Color = Color.Green,
-                    TopRightLabel = new TextLabel {
+                    Title = "Queen of the Forest",
+                    BottomCenterLabel = new TextLabel {
                         Text = "One day she met a handsome man tyrannosarus.",
                         Color = Color.White,
-                        VerticalAlignment = TextAlignment.Start,
+                        ColumnSpan = 2,
+                        VerticalAlignment = TextAlignment.Center,
                         HorizontalAlignment = TextAlignment.End
-                    },
-                    TopLeftLabel = new TextLabel {
-                        Text = "Wowzers",
-                        Color = Color.White
                     }
                 },
 				new BooksDataModel {
-                    ImageName = "01-page.png",
+                    ImageName = "03-page.png",
                     Color = Color.Red,
+                    Title = "A Mother's Warning",
                     TopLeftLabel = new TextLabel {
                         Text = "She killed him and ate him.",
                         Color = Color.White
@@ -75,7 +77,8 @@ namespace Majestasaurus.Portable
                 new BooksDataModel {
                     ImageName = "XX-nonexistent.jpg",
                     Color = Color.Silver,
-                    TopLeftLabel = new TextLabel {Text = "A", VerticalAlignment = TextAlignment.Start},
+                    Title = "A Testing Page",
+                    TopLeftLabel = new TextLabel {Text = "A", VerticalAlignment = TextAlignment.Start, Color = Color.Red},
                     TopCenterLabel = new TextLabel {Text = "B", VerticalAlignment = TextAlignment.Start, HorizontalAlignment = TextAlignment.Center},
                     TopRightLabel = new TextLabel {Text = "C", VerticalAlignment = TextAlignment.Start, HorizontalAlignment = TextAlignment.End},
                     MiddleLeftLabel = new TextLabel {Text = "The quick brown fox jumps over the lazy dog.", VerticalAlignment = TextAlignment.Center},

@@ -10,13 +10,14 @@ namespace Majestasaurus.Portable
         private IList items;
         private int position;
 
-        public MainPage ()
+        public MainPage (int position = 0)
 		{
 			InitializeComponent ();
             items = (IList)BooksDataModel.All;
-            position = 0;
+            this.position = position;
             Carousel.ItemsSource = items;
             Carousel.PropertyChanged += Carousel_PropertyChanged;
+            Carousel.Position = position;
         }
 
         private void Carousel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
