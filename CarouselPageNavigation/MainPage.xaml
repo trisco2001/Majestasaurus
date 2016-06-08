@@ -16,26 +16,43 @@
     <controls:CarouselViewControl Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2" Position="0" x:Name="Carousel" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
       <controls:CarouselViewControl.ItemTemplate>
         <DataTemplate>
-          <Grid BackgroundColor="{Binding Color}">
+          <Grid BackgroundColor="{Binding Color}" Margin="0, 40, 0, 0">
             <Grid.RowDefinitions>
-              <RowDefinition/>
               <RowDefinition Height="40"/>
+              <RowDefinition/>
+              <RowDefinition/>
+              <RowDefinition/>
             </Grid.RowDefinitions>
-            <Image Grid.Row="0" Grid.RowSpan="2" Source="{Binding ImageName}" HorizontalOptions="FillAndExpand" Aspect="AspectFill" Opacity="0.7">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition />
+              <ColumnDefinition/>
+              <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.RowSpan="4" Grid.ColumnSpan="3" Source="{Binding ImageName}" HorizontalOptions="FillAndExpand" Aspect="AspectFill" Opacity="0.7">
               <Image.GestureRecognizers>
                 <TapGestureRecognizer
                   Tapped="OnTapGestureRecognizerTapped"
                   NumberOfTapsRequired="1" />
               </Image.GestureRecognizers>
             </Image>
-            <Label Grid.Row="1" Text="{Binding PageText}" TextColor="White" FontSize="Large" FontAttributes="Bold"/>
-          </Grid>
+            <Label BindingContext="{Binding TopLeftLabel}" Grid.Row="1" Grid.Column="0" Grid.RowSpan="{Binding RowSpan}" Grid.ColumnSpan="{Binding ColumnSpan}" Text="{Binding Text}" TextColor="{Binding Color}" HorizontalTextAlignment="{Binding HorizontalAlignment}" VerticalTextAlignment="{Binding VerticalAlignment}" FontAttributes="{Binding FontAttributes}" LineBreakMode="WordWrap" Margin="20, 20, 20, 10" InputTransparent="True" />
+            <Label BindingContext="{Binding TopCenterLabel}" Grid.Row="1" Grid.Column="1" Grid.RowSpan="{Binding RowSpan}" Grid.ColumnSpan="{Binding ColumnSpan}" Text="{Binding Text}" TextColor="{Binding Color}" HorizontalTextAlignment="{Binding HorizontalAlignment}" VerticalTextAlignment="{Binding VerticalAlignment}" FontAttributes="{Binding FontAttributes}" LineBreakMode="WordWrap" Margin="20, 20, 20, 10" InputTransparent="True"  />
+            <Label BindingContext="{Binding TopRightLabel}" Grid.Row="1" Grid.Column="2" Grid.RowSpan="{Binding RowSpan}" Grid.ColumnSpan="{Binding ColumnSpan}" Text="{Binding Text}" TextColor="{Binding Color}" HorizontalTextAlignment="{Binding HorizontalAlignment}" VerticalTextAlignment="{Binding VerticalAlignment}" FontAttributes="{Binding FontAttributes}" LineBreakMode="WordWrap" Margin="20, 20, 20, 10" InputTransparent="True"  />
+
+            <Label BindingContext="{Binding MiddleLeftLabel}" Grid.Row="2" Grid.Column="0" Grid.RowSpan="{Binding RowSpan}" Grid.ColumnSpan="{Binding ColumnSpan}" Text="{Binding Text}" TextColor="{Binding Color}" HorizontalTextAlignment="{Binding HorizontalAlignment}" VerticalTextAlignment="{Binding VerticalAlignment}" FontAttributes="{Binding FontAttributes}" LineBreakMode="WordWrap" Margin="20, 10, 20, 10" InputTransparent="True" />
+            <Label BindingContext="{Binding MiddleCenterLabel}" Grid.Row="2" Grid.Column="1" Grid.RowSpan="{Binding RowSpan}" Grid.ColumnSpan="{Binding ColumnSpan}" Text="{Binding Text}" TextColor="{Binding Color}" HorizontalTextAlignment="{Binding HorizontalAlignment}" VerticalTextAlignment="{Binding VerticalAlignment}" FontAttributes="{Binding FontAttributes}" LineBreakMode="WordWrap" Margin="20, 10, 20, 10" InputTransparent="True"  />
+            <Label BindingContext="{Binding MiddleRightLabel}" Grid.Row="2" Grid.Column="2" Grid.RowSpan="{Binding RowSpan}" Grid.ColumnSpan="{Binding ColumnSpan}" Text="{Binding Text}" TextColor="{Binding Color}" HorizontalTextAlignment="{Binding HorizontalAlignment}" VerticalTextAlignment="{Binding VerticalAlignment}" FontAttributes="{Binding FontAttributes}" LineBreakMode="WordWrap" Margin="20, 10, 20, 10" InputTransparent="True"  />
+
+            <Label BindingContext="{Binding BottomLeftLabel}" Grid.Row="3" Grid.Column="0" Grid.RowSpan="{Binding RowSpan}" Grid.ColumnSpan="{Binding ColumnSpan}" Text="{Binding Text}" TextColor="{Binding Color}" HorizontalTextAlignment="{Binding HorizontalAlignment}" VerticalTextAlignment="{Binding VerticalAlignment}" FontAttributes="{Binding FontAttributes}" LineBreakMode="WordWrap" Margin="20, 0, 20, 20" InputTransparent="True" />
+            <Label BindingContext="{Binding BottomCenterLabel}" Grid.Row="3" Grid.Column="1" Grid.RowSpan="{Binding RowSpan}" Grid.ColumnSpan="{Binding ColumnSpan}" Text="{Binding Text}" TextColor="{Binding Color}" HorizontalTextAlignment="{Binding HorizontalAlignment}" VerticalTextAlignment="{Binding VerticalAlignment}" FontAttributes="{Binding FontAttributes}" LineBreakMode="WordWrap" Margin="20, 0, 20, 20" InputTransparent="True"  />
+            <Label BindingContext="{Binding BottomRightLabel}" Grid.Row="3" Grid.Column="2" Grid.RowSpan="{Binding RowSpan}" Grid.ColumnSpan="{Binding ColumnSpan}" Text="{Binding Text}" TextColor="{Binding Color}" HorizontalTextAlignment="{Binding HorizontalAlignment}" VerticalTextAlignment="{Binding VerticalAlignment}" FontAttributes="{Binding FontAttributes}" LineBreakMode="WordWrap" Margin="20, 0, 20, 20" InputTransparent="True"   />
+         </Grid>
         </DataTemplate>
       </controls:CarouselViewControl.ItemTemplate>
     </controls:CarouselViewControl>
     <Button x:Name="PrevButton" Opacity="1" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Clicked="PrevClicked"></Button>
-    <StackLayout x:Name="MainMenu" Opacity="0.7" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="Start">
-      <Button Text="Go Back" Clicked="BackClicked"></Button>
+    <StackLayout x:Name="MainMenu" BackgroundColor="#80000000" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand">
+      <Button Text="&#060;-" Clicked="BackClicked" Margin="4, 0, 4, 0" HorizontalOptions="Start" VerticalOptions="Start" TextColor="White"></Button>
     </StackLayout>
     <Button x:Name="NextButton" Opacity="1" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Clicked="NextClicked"></Button>
   </Grid>

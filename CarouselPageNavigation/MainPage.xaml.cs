@@ -21,7 +21,10 @@ namespace Majestasaurus.Portable
 
         private void Carousel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            position = Carousel.Position;
+            if (e.PropertyName == "Position")
+            {
+                position = Carousel.Position;
+            }
         }
 
         public void BackClicked(object sender, EventArgs e)
@@ -49,7 +52,8 @@ namespace Majestasaurus.Portable
 
         public void OnTapGestureRecognizerTapped(object sender, EventArgs e)
         {
-            MainMenu.IsVisible = !MainMenu.IsVisible;
+            MainMenu.IsEnabled = !MainMenu.IsEnabled;
+            MainMenu.FadeTo(MainMenu.Opacity == 0 ? 1 : 0);
         }
     }
 }
