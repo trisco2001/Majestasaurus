@@ -1,12 +1,18 @@
-﻿using Xamarin.Forms;
+﻿using Majestasaurus.Portable.Services;
+using Ninject;
+using Xamarin.Forms;
 
 namespace Majestasaurus.Portable
 {
 	public class App : Application
-	{
-		public App ()
+    {
+        public static StandardKernel Container { get; set; }
+
+        public App ()
 		{
 			MainPage = new SplashScreen ();
+
+            App.Container = new StandardKernel();
 		}
 
 		protected override void OnStart ()
@@ -16,7 +22,8 @@ namespace Majestasaurus.Portable
 
 		protected override void OnSleep ()
 		{
-			// Handle when your app sleeps
+            // Handle when your app sleeps
+            Container.Get<IAudioService>().StopSound();
 		}
 
 		protected override void OnResume ()

@@ -61,7 +61,7 @@ namespace Majestasaurus.Portable
                         HorizontalAlignment = TextAlignment.End
                     }
                 },
-				new BooksDataModel {
+                new BooksDataModel {
                     ImageName = "03-page.png",
                     Color = Color.Red,
                     Title = "A Mother's Warning",
@@ -71,6 +71,19 @@ namespace Majestasaurus.Portable
                     },
                     BottomCenterLabel = new TextLabel {
                         Text = "My Test",
+                        Color = Color.White
+                    }
+                },
+                new BooksDataModel {
+                    ImageName = "04-page.jpg",
+                    Color = Color.Fuchsia,
+                    Title = "Titania Meets a Princess",
+                    TopLeftLabel = new TextLabel {
+                        Text = "Of course I shall journey with you,",
+                        Color = Color.White
+                    },
+                    BottomCenterLabel = new TextLabel {
+                        Text = "But I shall NOT be a dinosaur!",
                         Color = Color.White
                     }
                 },

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Majestasaurus.Portable.Services;
+using Ninject;
+using System;
 using System.Collections;
 using System.Diagnostics;
 using Xamarin.Forms;
@@ -9,6 +11,7 @@ namespace Majestasaurus.Portable
 	{
         private IList items;
         private int position;
+        private IAudioService audioService;
 
         public MainPage (int position = 0)
 		{
@@ -18,6 +21,14 @@ namespace Majestasaurus.Portable
             Carousel.ItemsSource = items;
             Carousel.PropertyChanged += Carousel_PropertyChanged;
             Carousel.Position = position;
+
+            audioService = App.Container.Get<IAudioService>();
+            this.Appearing += MainPage_Appearing;
+        }
+
+        private void MainPage_Appearing(object sender, EventArgs e)
+        {
+            audioService.PlayBackgroundMusic("welcome-home.mp3");
         }
 
         private void Carousel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -31,6 +42,7 @@ namespace Majestasaurus.Portable
         public void BackClicked(object sender, EventArgs e)
         {
             Navigation.PopModalAsync();
+            audioService.StopBackgroundMusic();
         }
 
         public void PrevClicked(object sender, EventArgs e)
