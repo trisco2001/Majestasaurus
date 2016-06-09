@@ -14,7 +14,21 @@ namespace Majestasaurus.Portable.Converters
         {
             if (value == null)
                 return "ERR";
-            return BooksDataModel.All.IndexOf(BooksDataModel.All.First(f => f.Title == (string)value)) + 1;
+
+            string sVal = value.ToString();
+
+            // Convert from a page index to a page number, a super-complicated calculation.
+            int iVal;
+            if (int.TryParse(sVal, out iVal))
+            {
+                if (parameter != null && parameter.ToString() == "Title")
+                {
+                    return BooksDataModel.All[iVal].Title;
+                }
+                return iVal + 1;
+            }
+
+            return BooksDataModel.All.IndexOf(BooksDataModel.All.First(f => f.Title == sVal)) + 1;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

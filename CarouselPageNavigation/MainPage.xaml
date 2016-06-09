@@ -2,7 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
 			  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
         xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+        xmlns:converters="clr-namespace:Majestasaurus.Portable.Converters;assembly=Majestasaurus.Portable"
 			  x:Class="Majestasaurus.Portable.MainPage">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <converters:BookPageNumberConverter x:Key="bookPageNumber"></converters:BookPageNumberConverter>
+    </ResourceDictionary>
+  </ContentPage.Resources>
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="40"/>
@@ -51,9 +57,19 @@
       </controls:CarouselViewControl.ItemTemplate>
     </controls:CarouselViewControl>
     <Button x:Name="PrevButton" Opacity="1" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Clicked="PrevClicked"></Button>
-    <StackLayout x:Name="MainMenu" BackgroundColor="#80000000" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand">
-      <Button Text="&#060;-" Clicked="BackClicked" Margin="4, 0, 4, 0" HorizontalOptions="Start" VerticalOptions="Start" TextColor="White"></Button>
-    </StackLayout>
+    <Grid x:Name="MainMenu" BackgroundColor="#80FFFFFF" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand">
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="40"/>
+        <ColumnDefinition/>
+        <ColumnDefinition Width="40"/>
+      </Grid.ColumnDefinitions>
+      <Grid Grid.Column="0" HorizontalOptions="Start">
+        <Image Source="Back_Arrow.png" Opacity="0.7"/>
+        <Button Clicked="BackClicked"></Button>
+      </Grid>
+      <Label Grid.Column="1" BindingContext="{x:Reference Name=Carousel}" Text="{Binding Position, Converter={StaticResource bookPageNumber}, ConverterParameter=Title}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+      <Label Grid.Column="2" BindingContext="{x:Reference Name=Carousel}" Text="{Binding Position, Converter={StaticResource bookPageNumber}}" VerticalOptions="CenterAndExpand"/>
+    </Grid>
     <Button x:Name="NextButton" Opacity="1" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Clicked="NextClicked"></Button>
   </Grid>
 </ContentPage>
