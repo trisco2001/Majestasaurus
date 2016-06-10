@@ -153,6 +153,11 @@
   <ItemGroup />
   <ItemGroup>
     <BundleResource Include="Resources\04-page.jpg" />
+    <BundleResource Include="Resources\pages-right.png" />
+    <BundleResource Include="Resources\pages-left.png" />
+    <BundleResource Include="Resources\tristan-and-amanda.jpg" />
+    <BundleResource Include="Resources\xander-and-aliera.jpg" />
+    <Content Include="Sounds\by-the-campfire.mp3" />
     <Content Include="Sounds\welcome-home.mp3" />
     <Content Include="Sounds\windy-cricket-meadow.mp3" />
   </ItemGroup>

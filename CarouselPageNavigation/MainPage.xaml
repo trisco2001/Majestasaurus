@@ -9,7 +9,7 @@
       <converters:BookPageNumberConverter x:Key="bookPageNumber"></converters:BookPageNumberConverter>
     </ResourceDictionary>
   </ContentPage.Resources>
-  <Grid>
+  <Grid BackgroundColor="White" ColumnSpacing="0">
     <Grid.RowDefinitions>
       <RowDefinition Height="40"/>
       <RowDefinition/>
@@ -19,7 +19,9 @@
       <ColumnDefinition/>
       <ColumnDefinition Width="60"/>
     </Grid.ColumnDefinitions>
-    <controls:CarouselViewControl Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="2" Position="0" x:Name="Carousel" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+    <Image Source="pages-left" Grid.Column="0" Grid.RowSpan="2" Aspect="Fill" Margin="0"/>
+    <Image Source="pages-right" Grid.Column="2" Grid.RowSpan="2" Aspect="Fill" Margin="0"/>
+    <controls:CarouselViewControl Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Position="0" x:Name="Carousel" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
       <controls:CarouselViewControl.ItemTemplate>
         <DataTemplate>
           <Grid BackgroundColor="{Binding Color}" Margin="0, 40, 0, 0">
