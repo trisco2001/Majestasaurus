@@ -8,6 +8,9 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Majestasaurus.Portable;
+using Majestasaurus.Droid.Services;
+using Majestasaurus.Portable.Services;
+using CarouselView.FormsPlugin.Android;
 
 namespace Majestasaurus.Droid
 {
@@ -19,8 +22,12 @@ namespace Majestasaurus.Droid
 			base.OnCreate (bundle);
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
+            CarouselViewRenderer.Init();
 
-			LoadApplication (new App ());
+            var app = new App();
+            App.Container.Bind<IAudioService>().To<AudioServiceAndroid>();
+
+            LoadApplication (app);
 		}
 	}
 }
