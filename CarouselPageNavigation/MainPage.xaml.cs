@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Majestasaurus.Portable.Services;
+using Ninject;
+using System;
 using System.Collections;
 using System.Diagnostics;
 using Xamarin.Forms;
@@ -9,24 +11,38 @@ namespace Majestasaurus.Portable
 	{
         private IList items;
         private int position;
+        private IAudioService audioService;
 
-        public MainPage ()
+        public MainPage (int position = 0)
 		{
 			InitializeComponent ();
             items = (IList)BooksDataModel.All;
-            position = 0;
+            this.position = position;
             Carousel.ItemsSource = items;
             Carousel.PropertyChanged += Carousel_PropertyChanged;
+            Carousel.Position = position;
+
+            audioService = App.Container.Get<IAudioService>();
+            this.Appearing += MainPage_Appearing;
+        }
+
+        private void MainPage_Appearing(object sender, EventArgs e)
+        {
+            audioService.PlayBackgroundMusic("welcome-home.mp3");
         }
 
         private void Carousel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            position = Carousel.Position;
+            if (e.PropertyName == "Position")
+            {
+                position = Carousel.Position;
+            }
         }
 
         public void BackClicked(object sender, EventArgs e)
         {
             Navigation.PopModalAsync();
+            audioService.StopBackgroundMusic();
         }
 
         public void PrevClicked(object sender, EventArgs e)
@@ -49,7 +65,8 @@ namespace Majestasaurus.Portable
 
         public void OnTapGestureRecognizerTapped(object sender, EventArgs e)
         {
-            MainMenu.IsVisible = !MainMenu.IsVisible;
+            MainMenu.IsEnabled = !MainMenu.IsEnabled;
+            MainMenu.FadeTo(MainMenu.Opacity == 0 ? 1 : 0);
         }
     }
 }

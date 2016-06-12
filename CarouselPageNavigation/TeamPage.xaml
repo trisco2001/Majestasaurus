@@ -2,6 +2,35 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Majestasaurus.Portable.TeamPage"
-             BackgroundColor="Fuchsia">
-  <Button Text="Go Back" Clicked="BackClicked" VerticalOptions="Center" HorizontalOptions="Center" />
+             BackgroundColor="Navy">
+  <Grid ColumnSpacing="0">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition/>
+      <ColumnDefinition/>
+      <ColumnDefinition/>
+      <ColumnDefinition/>
+      <ColumnDefinition/>
+    </Grid.ColumnDefinitions>
+    <Button Text="Back" TextColor="White" FontAttributes="Bold" Clicked="BackClicked"/>
+    <Grid Grid.Column="1" Grid.ColumnSpan="2" RowSpacing="0">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="25"/>
+        <RowDefinition/>
+        <RowDefinition Height="25"/>
+        <RowDefinition/>
+      </Grid.RowDefinitions>
+      <Image Grid.Row="0" Grid.RowSpan="2" Source="tristan-and-amanda.jpg" Aspect="AspectFill"/>
+      <Label Grid.Row="0" Text="Development and Art" BackgroundColor="#80FFFFFF" TextColor="Navy" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+      <Image Grid.Row="2" Grid.RowSpan="2" Source="xander-and-aliera.jpg" Aspect="AspectFill"/>
+      <Label Grid.Row="2" Text="Testing" BackgroundColor="#80FFFFFF" TextColor="Navy" FontAttributes="Bold" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+    </Grid>
+    <Grid  Grid.Column="3" Grid.ColumnSpan="2">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="35"/>
+        <RowDefinition/>
+      </Grid.RowDefinitions>
+      <Label Grid.Row="0" TextColor="White" FontSize="Large" Text="About the Team" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+      <Label Grid.Row="1" TextColor="White" FontAttributes="Bold" Text="{Binding TeamDescription}" Margin="10"/>
+    </Grid>
+  </Grid>
 </ContentPage>

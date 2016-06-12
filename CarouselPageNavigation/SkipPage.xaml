@@ -1,7 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:Majestasaurus.Portable.Converters;assembly=Majestasaurus.Portable"
              x:Class="Majestasaurus.Portable.SkipPage"
-             BackgroundColor="Aqua">
-  <Button Text="Go Back" Clicked="BackClicked" VerticalOptions="Center" HorizontalOptions="Center" />
+             BackgroundColor="Navy">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <converters:BookPageNumberConverter x:Key="bookPageNumber"></converters:BookPageNumberConverter>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <Grid>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition/>
+      <ColumnDefinition/>
+      <ColumnDefinition/>
+      <ColumnDefinition/>
+      <ColumnDefinition/>
+    </Grid.ColumnDefinitions>
+    <Button Text="Back" TextColor="White" FontAttributes="Bold" Clicked="BackClicked"/>
+    <ListView Grid.Column="1" Grid.ColumnSpan="3" x:Name="MyListView" RowHeight="190">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell BindingContext="{Binding}" Tapped="CellTapped">
+            <Grid BackgroundColor="{Binding Color}">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+              </Grid.ColumnDefinitions>
+              <Image Margin="0,0,0,0" Source="{Binding ImageName}" Grid.Column="0" Aspect="AspectFill" Opacity="0.7"/>
+              <Label Margin="8" Grid.Column="0" Text="{Binding Title, Converter={StaticResource bookPageNumber}}" TextColor="Black" Opacity="0.7" FontAttributes="Bold"/>
+              <Label Margin="0,0,0,0" BackgroundColor="#B0FFFFFF" Text="{Binding Title}" Grid.Column="1" FontSize="Small" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+            </Grid>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </Grid>
 </ContentPage>
