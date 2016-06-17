@@ -71,12 +71,8 @@ namespace Majestasaurus.Portable
                     BottomLeftLabel = new TextLabel {
                         Text = "Titania the Tyrannosaurus wanted to be queen of the forest.",
                         Color = Color.White,
-                        VoiceClip = new VoiceClip {ClipName = "by-the-campfire.mp3", DurationMilliseconds = 5000 }
-                    },
-                    BottomRightLabel = new TextLabel {
-                        Text = "My Test",
-                        Color = Color.White,
-                        VoiceClip = new VoiceClip {ClipName = "windy-cricket-meadow.mp3", DurationMilliseconds = 5000 }
+                        VoiceClip = new VoiceClip {ClipName = "01-queen-forest.mp3" },
+                        ColumnSpan = 2
                     }
                 },
                 new BooksDataModel {
@@ -88,7 +84,8 @@ namespace Majestasaurus.Portable
                         Color = Color.White,
                         ColumnSpan = 2,
                         VerticalAlignment = TextAlignment.Center,
-                        HorizontalAlignment = TextAlignment.End
+                        HorizontalAlignment = TextAlignment.End,
+                        VoiceClip = new VoiceClip {ClipName = "02-man-tyranno.mp3" }
                     }
                 },
                 new BooksDataModel {
@@ -97,11 +94,14 @@ namespace Majestasaurus.Portable
                     Title = "A Mother's Warning",
                     TopLeftLabel = new TextLabel {
                         Text = "She killed him and ate him.",
-                        Color = Color.White
+                        Color = Color.White,
+                        VoiceClip = new VoiceClip {ClipName = "03-killed.mp3" }
                     },
-                    BottomCenterLabel = new TextLabel {
-                        Text = "My Test",
-                        Color = Color.White
+                    MiddleRightLabel = new TextLabel {
+                        Text = "Then she visited her friend's house to invite her on an adventure.",
+                        Color = Color.White,
+                        VoiceClip = new VoiceClip {ClipName = "03-2-adventure.mp3" },
+                        RowSpan = 2
                     }
                 },
                 new BooksDataModel {
@@ -110,10 +110,12 @@ namespace Majestasaurus.Portable
                     Title = "Titania Meets a Princess",
                     TopLeftLabel = new TextLabel {
                         Text = "Of course I shall journey with you,",
+                        VoiceClip = new VoiceClip {ClipName = "04-of-course.mp3" },
                         Color = Color.White
                     },
                     BottomCenterLabel = new TextLabel {
                         Text = "But I shall NOT be a dinosaur!",
+                        VoiceClip = new VoiceClip {ClipName = "04-2-not-dino.mp3" },
                         Color = Color.White
                     }
                 },

@@ -158,7 +158,15 @@
     <BundleResource Include="Resources\pages-left.png" />
     <BundleResource Include="Resources\tristan-and-amanda.jpg" />
     <BundleResource Include="Resources\xander-and-aliera.jpg" />
+    <Content Include="Sounds\01-2-test.mp3" />
+    <Content Include="Sounds\01-queen-forest.mp3" />
+    <Content Include="Sounds\02-man-tyranno.mp3" />
+    <Content Include="Sounds\03-2-adventure.mp3" />
+    <Content Include="Sounds\03-killed.mp3" />
+    <Content Include="Sounds\04-2-not-dino.mp3" />
+    <Content Include="Sounds\04-of-course.mp3" />
     <Content Include="Sounds\by-the-campfire.mp3" />
+    <Content Include="Sounds\taps.mp3" />
     <Content Include="Sounds\welcome-home.mp3" />
     <Content Include="Sounds\windy-cricket-meadow.mp3" />
   </ItemGroup>

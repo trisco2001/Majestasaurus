@@ -36,6 +36,7 @@ namespace Majestasaurus.Portable
         {
             if (e.PropertyName == "Position")
             {
+                audioService.StopVoiceTrack();
                 position = Carousel.Position;
 
                 await PlayVoiceTracksAsync();
@@ -48,8 +49,9 @@ namespace Majestasaurus.Portable
             {
                 if (label.VoiceClip != null)
                 {
+                    label.VoiceClip.IsPlaying = true;
                     audioService.PlayVoiceTrack(label.VoiceClip);
-                    await Task.Run(() => { while (label.VoiceClip.IsPlaying) Task.Delay(100); });
+                    await Task.Run(() => { while (label.VoiceClip.IsPlaying); });
                 }
             }
         }

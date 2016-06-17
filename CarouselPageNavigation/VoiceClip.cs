@@ -5,10 +5,7 @@ namespace Majestasaurus.Portable
     public class VoiceClip : INotifyPropertyChanged
     {
         private bool isPlaying;
-        private int durationMilliseconds;
         private string clipName;
-
-        public int DurationMilliseconds { get { return durationMilliseconds; } set { durationMilliseconds = value; OnPropertyChanged("DurationMilliseconds"); } }
 
         public string ClipName { get { return clipName; } set { clipName = value; OnPropertyChanged("ClipName"); } }
 
