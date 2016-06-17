@@ -158,6 +158,7 @@
     <BundleResource Include="Resources\pages-left.png" />
     <BundleResource Include="Resources\tristan-and-amanda.jpg" />
     <BundleResource Include="Resources\xander-and-aliera.jpg" />
+    <BundleResource Include="Resources\05-page.jpg" />
     <Content Include="Sounds\01-2-test.mp3" />
     <Content Include="Sounds\01-queen-forest.mp3" />
     <Content Include="Sounds\02-man-tyranno.mp3" />

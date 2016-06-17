@@ -120,6 +120,19 @@ namespace Majestasaurus.Portable
                     }
                 },
                 new BooksDataModel {
+                    ImageName = "05-page.jpg",
+                    Color = Color.FromHex("AA9900"),
+                    Title = "The Fairy Princess' Blessing",
+                    BottomLeftLabel = new TextLabel {
+                        Text = "The fairy princess crafted a crown of flowers, and bestowed upon Titania the miraculous power of flight.",
+                        VoiceClip = new VoiceClip {ClipName = "04-of-course.mp3" },
+                        Color = Color.White,
+                        ColumnSpan = 3,
+                        VerticalAlignment = TextAlignment.End,
+                        HorizontalAlignment = TextAlignment.Center
+                    }
+                },
+                new BooksDataModel {
                     ImageName = "XX-nonexistent.jpg",
                     Color = Color.Silver,
                     Title = "A Testing Page",
