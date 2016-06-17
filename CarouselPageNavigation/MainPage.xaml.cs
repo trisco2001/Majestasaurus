@@ -14,6 +14,8 @@ namespace Majestasaurus.Portable
         private int position;
         private IAudioService audioService;
 
+        public bool EnableReading { get; set; }
+
         public MainPage (int position = 0)
 		{
 			InitializeComponent ();
@@ -27,9 +29,13 @@ namespace Majestasaurus.Portable
             this.Appearing += MainPage_Appearing;
         }
 
-        private void MainPage_Appearing(object sender, EventArgs e)
+        private async void MainPage_Appearing(object sender, EventArgs e)
         {
             audioService.PlayBackgroundMusic("welcome-home.mp3");
+            if (EnableReading)
+            {
+                await PlayVoiceTracksAsync();
+            }
         }
 
         private async void Carousel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -39,7 +45,10 @@ namespace Majestasaurus.Portable
                 audioService.StopVoiceTrack();
                 position = Carousel.Position;
 
-                await PlayVoiceTracksAsync();
+                if (EnableReading)
+                {
+                    await PlayVoiceTracksAsync();
+                }
             }
         }
 

@@ -29,8 +29,20 @@ namespace Majestasaurus.Portable
 
         public void ReadClicked(object sender, EventArgs e)
         {
+            StartBook(readToMe: true);
+        }
+
+        public void StartClicked(object sender, EventArgs e)
+        {
+            StartBook(readToMe: false);
+        }
+
+        private void StartBook(bool readToMe)
+        {
+            var mainPage = new MainPage();
+            mainPage.EnableReading = readToMe;
             audioService.StopBackgroundMusic();
-            Navigation.PushModalAsync(new MainPage());
+            Navigation.PushModalAsync(mainPage);
         }
 
         public void SkipClicked(object sender, EventArgs e)
