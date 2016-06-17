@@ -1,11 +1,22 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Xamarin.Forms;
 
 namespace Majestasaurus.Portable
 {
 	public class BooksDataModel
     {
+        public const int TopLeftLabelPosition = 1;
+
+        public const int TopCenterLabelPosition = 2;
+        public const int TopRightLabelPosition = 3;
+        public const int MiddleLeftLabelPosition = 4;
+        public const int MiddleCenterLabelPosition = 5;
+        public const int MiddleRightLabelPosition = 6;
+        public const int BottomLeftLabelPosition = 7;
+        public const int BottomCenterLabelPosition = 8;
+        public const int BottomRightLabelPosition = 9;
 
         public string ImageName { get; set; }
 
@@ -32,8 +43,25 @@ namespace Majestasaurus.Portable
         public TextLabel BottomRightLabel { get; set; }
 
         public static IList<BooksDataModel> All { get; set; }
+        public IEnumerable<TextLabel> LabelsInOrder
+        {
+            get
+            {
+                return new []{
+                    TopLeftLabel,
+                    TopCenterLabel,
+                    TopRightLabel,
+                    MiddleLeftLabel,
+                    MiddleCenterLabel,
+                    MiddleRightLabel,
+                    BottomLeftLabel,
+                    BottomCenterLabel,
+                    BottomRightLabel
+                }.Where(n => n != null);
+            }
+        }
 
-		static BooksDataModel ()
+        static BooksDataModel ()
 		{
             All = new ObservableCollection<BooksDataModel> {
                 new BooksDataModel {
@@ -42,11 +70,13 @@ namespace Majestasaurus.Portable
                     Title = "Titania Prepares for the Day",
                     BottomLeftLabel = new TextLabel {
                         Text = "Titania the Tyrannosaurus wanted to be queen of the forest.",
-                        Color = Color.White
+                        Color = Color.White,
+                        VoiceClip = new VoiceClip {ClipName = "by-the-campfire.mp3", DurationMilliseconds = 5000 }
                     },
                     BottomRightLabel = new TextLabel {
                         Text = "My Test",
-                        Color = Color.White
+                        Color = Color.White,
+                        VoiceClip = new VoiceClip {ClipName = "windy-cricket-meadow.mp3", DurationMilliseconds = 5000 }
                     }
                 },
                 new BooksDataModel {

@@ -3,6 +3,7 @@ using Ninject;
 using System;
 using System.Collections;
 using System.Diagnostics;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace Majestasaurus.Portable
@@ -31,11 +32,25 @@ namespace Majestasaurus.Portable
             audioService.PlayBackgroundMusic("welcome-home.mp3");
         }
 
-        private void Carousel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private async void Carousel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
             if (e.PropertyName == "Position")
             {
                 position = Carousel.Position;
+
+                await PlayVoiceTracksAsync();
+            }
+        }
+
+        private async Task PlayVoiceTracksAsync()
+        {
+            foreach (var label in BooksDataModel.All[position].LabelsInOrder)
+            {
+                if (label.VoiceClip != null)
+                {
+                    audioService.PlayVoiceTrack(label.VoiceClip);
+                    await Task.Run(() => { while (label.VoiceClip.IsPlaying) Task.Delay(100); });
+                }
             }
         }
 

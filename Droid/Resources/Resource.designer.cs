@@ -26,7 +26,7 @@ namespace Majestasaurus.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::Majestasaurus.Droid.Resource.Attribute.actionBarSize;
+			//global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::Majestasaurus.Droid.Resource.Attribute.actionBarSize;
 		}
 		
 		public partial class Attribute

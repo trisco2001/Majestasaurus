@@ -18,6 +18,8 @@ namespace Majestasaurus.Portable.Services
 
         void PlaySound(string fileName);
 
+        void PlayVoiceTrack(VoiceClip voiceClip);
+
         void StopSound();
 
         void RestartBackgroundMusic();
@@ -25,6 +27,8 @@ namespace Majestasaurus.Portable.Services
         void SuspendBackgroundMusic();
 
         void StopBackgroundMusic();
+
+        void StopVoiceTrack();
 
         void PlayBackgroundMusic(string filename);
     }

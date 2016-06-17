@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Converters\BookPageNumberConverter.cs" />
+    <Compile Include="Converters\LabelColorConverter.cs" />
     <Compile Include="HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -45,6 +46,7 @@
     <Compile Include="MainPageCS.cs" />
     <Compile Include="BooksDataModel.cs" />
     <Compile Include="Services\IAudioService.cs" />
+    <Compile Include="Services\IVoiceClipWatcher.cs" />
     <Compile Include="SkipPage.xaml.cs">
       <DependentUpon>SkipPage.xaml</DependentUpon>
     </Compile>
@@ -56,6 +58,7 @@
       <DependentUpon>TeamPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="TextLabel.cs" />
+    <Compile Include="VoiceClip.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.5.0.6446\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.5.0.6446\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

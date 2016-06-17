@@ -8,6 +8,8 @@ namespace Majestasaurus.Portable
 
         public Color Color { get; set; }
 
+        public VoiceClip VoiceClip { get; set; }
+
         public int ColumnSpan { get; set; }
 
         public int RowSpan { get; set; }

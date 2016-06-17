@@ -127,6 +127,7 @@
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Services\AudioServiceIOS.cs" />
+    <Compile Include="Services\VoiceClipPlayer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="ITunesArtwork" />

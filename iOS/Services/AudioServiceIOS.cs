@@ -7,6 +7,7 @@ using Foundation;
 using AVFoundation;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using Majestasaurus.Portable;
 
 namespace Majestasaurus.iOS.Services
 {
@@ -17,6 +18,7 @@ namespace Majestasaurus.iOS.Services
         private static AVAudioPlayer backgroundMusic;
         private AVAudioPlayer soundEffect;
         private static string backgroundSong = "";
+        private static VoiceClipPlayer voiceClipPlayer;
         #endregion
 
         public AudioServiceIOS()
@@ -61,10 +63,6 @@ namespace Majestasaurus.iOS.Services
             NSError err;
             backgroundMusic = new AVAudioPlayer(songURL, "wav", out err);
             backgroundMusic.Volume = MusicVolume;
-            backgroundMusic.FinishedPlaying += delegate {
-                // backgroundMusic.Dispose(); 
-                backgroundMusic = null;
-            };
             backgroundMusic.NumberOfLoops = -1;
             backgroundMusic.Play();
             backgroundSong = filename;
@@ -154,6 +152,23 @@ namespace Majestasaurus.iOS.Services
             {
                 player.Dispose();
             }
+        }
+
+        public async void StopVoiceTrack()
+        {
+            if (voiceClipPlayer != null)
+            {
+                await voiceClipPlayer.FadeOut();
+            }
+        }
+
+        public void PlayVoiceTrack(VoiceClip voiceClip)
+        {
+            voiceClip.IsPlaying = true;
+            StopVoiceTrack();
+
+            voiceClipPlayer = new VoiceClipPlayer(voiceClip);
+            voiceClipPlayer.Play(EffectsVolume);
         }
     }
 }
