@@ -60,18 +60,18 @@
       </controls:CarouselViewControl.ItemTemplate>
     </controls:CarouselViewControl>
     <Button x:Name="PrevButton" Opacity="1" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Clicked="PrevClicked"></Button>
-    <Grid x:Name="MainMenu" BackgroundColor="#80FFFFFF" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand">
+    <Grid x:Name="MainMenu" BackgroundColor="#80000000" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" HorizontalOptions="FillAndExpand">
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="40"/>
         <ColumnDefinition/>
         <ColumnDefinition Width="40"/>
       </Grid.ColumnDefinitions>
-      <Grid Grid.Column="0" HorizontalOptions="Start">
+      <Grid Grid.Column="0" HorizontalOptions="Start" Margin="4,4,4,4">
         <Image Source="Back_Arrow.png" Opacity="0.7"/>
         <Button Clicked="BackClicked"></Button>
       </Grid>
-      <Label Grid.Column="1" BindingContext="{x:Reference Name=Carousel}" Text="{Binding Position, Converter={StaticResource bookPageNumber}, ConverterParameter=Title}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-      <Label Grid.Column="2" BindingContext="{x:Reference Name=Carousel}" Text="{Binding Position, Converter={StaticResource bookPageNumber}}" VerticalOptions="CenterAndExpand"/>
+      <Label TextColor="White" Grid.Column="1" BindingContext="{x:Reference Name=Carousel}" Text="{Binding Position, Converter={StaticResource bookPageNumber}, ConverterParameter=Title}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+      <Label TextColor="White" Grid.Column="2" BindingContext="{x:Reference Name=Carousel}" Text="{Binding Position, Converter={StaticResource bookPageNumber}}" VerticalOptions="CenterAndExpand"/>
     </Grid>
     <Button x:Name="NextButton" Opacity="1" Grid.Row="0" Grid.Column="2" Grid.RowSpan="2" Clicked="NextClicked"></Button>
   </Grid>

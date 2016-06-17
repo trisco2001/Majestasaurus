@@ -32,9 +32,21 @@ namespace Majestasaurus.Portable
         private async void MainPage_Appearing(object sender, EventArgs e)
         {
             audioService.PlayBackgroundMusic("welcome-home.mp3");
+            HideMenuAfter(delay: 2000);
+
             if (EnableReading)
             {
                 await PlayVoiceTracksAsync();
+            }
+
+        }
+
+        private async void HideMenuAfter(int delay)
+        {
+            await Task.Delay(delay);
+            if (MainMenu.IsEnabled)
+            {
+                ToggleMenu();
             }
         }
 
@@ -90,6 +102,11 @@ namespace Majestasaurus.Portable
         }
 
         public void OnTapGestureRecognizerTapped(object sender, EventArgs e)
+        {
+            ToggleMenu();
+        }
+
+        private void ToggleMenu()
         {
             MainMenu.IsEnabled = !MainMenu.IsEnabled;
             MainMenu.FadeTo(MainMenu.Opacity == 0 ? 1 : 0);
