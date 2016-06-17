@@ -10,7 +10,7 @@
       <ColumnDefinition/>
     </Grid.ColumnDefinitions>
     <Image Grid.Column="0" Grid.Row="0" Source="00-main.jpg" Margin="0,0,0,0" Aspect="AspectFill" VerticalOptions="FillAndExpand"/>
-    <StackLayout Grid.Column="0" Grid.Row="0" Margin="0,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
+    <StackLayout BackgroundColor="#80000000" Grid.Column="0" Grid.Row="0" Margin="0,0,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand">
       <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
         <Button Text="Read to Me" Clicked="ReadClicked" TextColor="White" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" Margin="0,0,0,0"></Button>
         <Button Text="Read By Myself" Clicked="StartClicked" TextColor="White" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"  Margin="0,0,0,0"></Button>
