@@ -19,13 +19,14 @@ namespace Majestasaurus.Portable
         public MainPage (int position = 0)
 		{
 			InitializeComponent ();
+            audioService = App.Container.Get<IAudioService>();
+
             items = (IList)BooksDataModel.All;
             this.position = position;
             Carousel.ItemsSource = items;
             Carousel.PropertyChanged += Carousel_PropertyChanged;
             Carousel.Position = position;
 
-            audioService = App.Container.Get<IAudioService>();
             this.Appearing += MainPage_Appearing;
         }
 
@@ -66,8 +67,12 @@ namespace Majestasaurus.Portable
 
         private async Task PlayVoiceTracksAsync()
         {
-            foreach (var label in BooksDataModel.All[position].LabelsInOrder)
+            int loopThroughPage = position;
+            foreach (var label in BooksDataModel.All[loopThroughPage].LabelsInOrder)
             {
+                if (loopThroughPage != position)
+                    break;
+
                 if (label.VoiceClip != null)
                 {
                     label.VoiceClip.IsPlaying = true;

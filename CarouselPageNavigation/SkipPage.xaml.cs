@@ -22,7 +22,7 @@ namespace Majestasaurus.Portable
         {
             int position = BooksDataModel.All.IndexOf(((BooksDataModel)((ViewCell)sender).BindingContext));
             Navigation.PopModalAsync(false);
-            Navigation.PushModalAsync(new MainPage(position));
+            Navigation.PushModalAsync(new MainPage(position) { EnableReading = true } );
         }
 
         public void BackClicked(object sender, EventArgs e)

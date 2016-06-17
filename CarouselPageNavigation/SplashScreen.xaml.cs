@@ -29,7 +29,7 @@ namespace Majestasaurus.Portable
             int max = 50;
             for (int i = 0; i < max; i++)
             {
-                await Task.Delay(300/max);
+                await Task.Delay(1500/max);
                 splashScreenModel.MainText = "Loading " + (i * 100 / max) + "%";
                 splashScreenModel.Progress += 1.0 / max;
             }
