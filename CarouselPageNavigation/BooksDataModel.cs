@@ -68,68 +68,112 @@ namespace Majestasaurus.Portable
                     ImageName = "01-page.png",
                     Color = Color.Blue,
                     Title = "Titania Prepares for the Day",
-                    BottomLeftLabel = new TextLabel {
-                        Text = "Titania the Tyrannosaurus wanted to be queen of the forest.",
+                    TopLeftLabel = new TextLabel {
+                        Text = "Titania readied herself for the day while setting her summer goals.",
+                        RowSpan = 2,
                         Color = Color.White,
+                        VerticalAlignment = TextAlignment.Start,
                         VoiceClip = new VoiceClip {ClipName = "01-queen-forest.mp3" },
-                        ColumnSpan = 2
+                    },
+                    BottomLeftLabel = new TextLabel {
+                        Text = "First and most importantly, she must be a Tyrannosaurus as always.",
+                        Color = Color.White,
+                        ColumnSpan = 2,
+                        VoiceClip = new VoiceClip {ClipName = "01-queen-forest.mp3" },
                     }
                 },
                 new BooksDataModel {
                     ImageName = "02-page.png",
                     Color = Color.Green,
                     Title = "Queen of the Forest",
+                    TopLeftLabel = new TextLabel {
+                        Text = "But that was not enough. The night before, her mother had read her a bedtime story about a fairy queen in an enchanted forest.",
+                        Color = Color.White,
+                        ColumnSpan = 3,
+                        VerticalAlignment = TextAlignment.Start,
+                        HorizontalAlignment = TextAlignment.Start,
+                        VoiceClip = new VoiceClip {ClipName = "02-man-tyranno.mp3" }
+                    },
                     BottomCenterLabel = new TextLabel {
-                        Text = "One day she met a handsome man tyrannosarus.",
+                        Text = "Titania thought being Queen of the Forest also would be delightful.",
                         Color = Color.White,
                         ColumnSpan = 2,
-                        VerticalAlignment = TextAlignment.Center,
+                        VerticalAlignment = TextAlignment.End,
                         HorizontalAlignment = TextAlignment.End,
                         VoiceClip = new VoiceClip {ClipName = "02-man-tyranno.mp3" }
-                    }
+                    },
                 },
                 new BooksDataModel {
                     ImageName = "03-page.png",
                     Color = Color.Red,
                     Title = "A Mother's Warning",
                     TopLeftLabel = new TextLabel {
-                        Text = "She killed him and ate him.",
+                        Text = "As she left her house to find her friends and share her idea, her mother said:",
                         Color = Color.White,
+                        ColumnSpan = 2,
+                        VerticalAlignment = TextAlignment.Start,
+                        HorizontalAlignment = TextAlignment.Start,
                         VoiceClip = new VoiceClip {ClipName = "03-killed.mp3" }
                     },
-                    MiddleRightLabel = new TextLabel {
-                        Text = "Then she visited her friend's house to invite her on an adventure.",
+                    TopRightLabel = new TextLabel {
+                        Text = "'Titania, remember your friends have games they want to play too. Compromise and you'll have a good time!'",
                         Color = Color.White,
+                        RowSpan = 2,
+                        VerticalAlignment = TextAlignment.Start,
+                        HorizontalAlignment = TextAlignment.End,
+                        VoiceClip = new VoiceClip {ClipName = "03-killed.mp3" }
+                    },
+                    BottomRightLabel = new TextLabel {
+                        Text = "'Okay! Bye Mom,' said Titania.",
+                        Color = Color.White,
+                        VerticalAlignment = TextAlignment.End,
+                        HorizontalAlignment = TextAlignment.End,
                         VoiceClip = new VoiceClip {ClipName = "03-2-adventure.mp3" },
-                        RowSpan = 2
                     }
                 },
                 new BooksDataModel {
                     ImageName = "04-page.jpg",
                     Color = Color.Fuchsia,
                     Title = "Titania Meets a Princess",
-                    TopLeftLabel = new TextLabel {
-                        Text = "Of course I shall journey with you,",
-                        VoiceClip = new VoiceClip {ClipName = "04-of-course.mp3" },
-                        Color = Color.White
+                    TopCenterLabel = new TextLabel {
+                        Text = "Titania arrived at her first friend’s house. 'Come play! Will you help me be Queen of the Forest?'",
+                        HorizontalAlignment = TextAlignment.End,
+                        VerticalAlignment = TextAlignment.Start,
+                        ColumnSpan = 2
                     },
-                    BottomCenterLabel = new TextLabel {
-                        Text = "But I shall NOT be a dinosaur!",
-                        VoiceClip = new VoiceClip {ClipName = "04-2-not-dino.mp3" },
-                        Color = Color.White
+                    MiddleLeftLabel = new TextLabel {
+                        Text = "'I will not be a dinosaur,' her friend said. 'But I want to help. I am a Princess!'",
+                        HorizontalAlignment = TextAlignment.Start,
+                        VerticalAlignment = TextAlignment.Center,
+                        ColumnSpan = 2
+                    },
+                    BottomRightLabel = new TextLabel {
+                        Text = "'Of course!' Titania replied.",
+                        HorizontalAlignment = TextAlignment.End,
+                        VerticalAlignment = TextAlignment.End
                     }
                 },
                 new BooksDataModel {
                     ImageName = "05-page.jpg",
                     Color = Color.FromHex("AA9900"),
                     Title = "The Fairy Princess' Blessing",
+                    TopLeftLabel = new TextLabel {
+                        Text = "The Princess thought what Titania needed most was a crown.",
+                        HorizontalAlignment = TextAlignment.Start,
+                        VerticalAlignment = TextAlignment.Start,
+                        RowSpan = 2
+                    },
+                    TopCenterLabel = new TextLabel {
+                        Text = "But because all fairytale things must come in threes, she thought Titania also needed fairy wings, and a royal feast.",
+                        HorizontalAlignment = TextAlignment.End,
+                        VerticalAlignment = TextAlignment.Start,
+                        ColumnSpan = 2
+                    },
                     BottomLeftLabel = new TextLabel {
-                        Text = "The fairy princess crafted a crown of flowers, and bestowed upon Titania the miraculous power of flight.",
-                        VoiceClip = new VoiceClip {ClipName = "04-of-course.mp3" },
-                        Color = Color.White,
-                        ColumnSpan = 3,
+                        Text = "With three magical items in place, the girls were on their way.",
+                        HorizontalAlignment = TextAlignment.Center,
                         VerticalAlignment = TextAlignment.End,
-                        HorizontalAlignment = TextAlignment.Center
+                        ColumnSpan = 3
                     }
                 },
                 new BooksDataModel {
