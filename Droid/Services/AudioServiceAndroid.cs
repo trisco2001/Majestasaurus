@@ -50,7 +50,17 @@ namespace Majestasaurus.Droid.Services
 
         public void SuspendBackgroundMusic()
         {
-            
+
+        }
+
+        public async void StopVoiceTrack()
+        {
+
+        }
+
+        public void PlayVoiceTrack(VoiceClip voiceClip)
+        {
+
         }
     }
 }
