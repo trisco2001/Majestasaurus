@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Majestasaurus.Portable;
 using Majestasaurus.Portable.Services;
 
 namespace Majestasaurus.Droid.Services
@@ -53,7 +54,7 @@ namespace Majestasaurus.Droid.Services
 
         }
 
-        public async void StopVoiceTrack()
+        public void StopVoiceTrack()
         {
 
         }
